@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "name": "Finish Learning Angular Playlist",
+      "dueDate": "2025-01-29",
+      "description": "Learn Angular Video",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "name": "Finish Case Study",
+      "description": "Demo on Tuesday",
+      "dueDate": "2025-01-30",
+      "isCompleted": true
+    },
+    {
+      "id": 3,
+      "name": "Test Duesss1",
+      "description": "Test Dues",
+      "dueDate": "2025-01-28",
+      "isCompleted": false
+    }
+  ]
+}

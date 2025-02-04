@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <div class="row px-3 py-2">
+        <app-task-filter class="col-sm"></app-task-filter>
+        <a [routerLink]="['add']" class="col-sm-1">
+            <button class="btn btn-primary">Add Task</button>
+        </a>
+    </div>
+    <app-task-list></app-task-list>
+</div>

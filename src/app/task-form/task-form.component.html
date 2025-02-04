@@ -1,0 +1,57 @@
+  <form [formGroup]="taskForm" class="container-sm gx-3 gy-2">
+    <div class="form-row p-2">
+      <label class="visually-hidden" for="specificSizeInputName">Task</label>
+      <input class="col-sm" type="text" name="task-name-text" placeholder="Task Title" class="form-control"
+      [(ngModel)]="task.name" formControlName="senderTaskNameControl">
+    </div>
+    @if(taskForm.get('senderTaskNameControl')?.invalid && (taskForm.get('senderTaskNameControl')?.dirty)
+     || taskForm.get('senderTaskNameControl')?.touched){
+      <div>
+        @if(taskForm.get('senderTaskNameControl')?.hasError('maxlength')){
+          <small class="text-danger px-2">Task Name exceeds 32 characters</small>
+        }
+        @if(taskForm.get('senderTaskNameControl')?.hasError('required')){
+          <small class="text-danger px-2">This is required.</small>
+        }
+      </div>
+    }
+    <div class="form-row p-2">
+      <label class="visually-hidden" for="specificSizeInputName">Description</label>
+      <input class ="col-sm" type="text" name="task-description-text" placeholder="Task Description"  class="form-control"
+      [(ngModel)]="task.description" formControlName="senderTaskDescriptionControl">
+    </div>
+    @if(taskForm.get('senderTaskDescriptionControl')?.invalid && (taskForm.get('senderTaskDescriptionControl')?.dirty)
+     || taskForm.get('senderTaskDescriptionControl')?.touched){
+      <div>
+        @if(taskForm.get('senderTaskDescriptionControl')?.hasError('maxlength')){
+          <small class="text-danger px-2">Task Description exceeds 255 characters</small>
+        }
+        @if(taskForm.get('senderTaskDescriptionControl')?.hasError('required')){
+          <small class="text-danger px-2">This is required.</small>
+        }
+      </div>
+    }
+    <div class="form-row p-2">
+        <label class="visually-hidden" for="specificSizeInputName">Due Date</label>
+        <input 
+        class="col-sm"
+        type="date"
+        [(ngModel)]="task.dueDate"
+        class="form-control"
+        formControlName="senderTaskDueDateControl"/>
+    </div>
+    @if(taskForm.get('senderTaskDueDateControl')?.invalid && (taskForm.get('senderTaskDueDateControl')?.dirty)
+     || taskForm.get('senderTaskDueDateControl')?.touched){
+      <div>
+        @if(taskForm.get('senderTaskDueDateControl')?.hasError('required')){
+          <small class="text-danger px-2">This is required.</small>
+        }
+        @if(taskForm.get('senderTaskDueDateControl')?.hasError('pastDueDate')){
+          <small class="text-danger px-2">Selected Due Date is a past date</small>
+        }
+      </div>
+    }
+    <div class="row-auto p-2">
+      <button type="submit" (click)="createTask()" class="btn btn-primary" [disabled]="taskForm.invalid">Save</button>
+    </div>
+</form>

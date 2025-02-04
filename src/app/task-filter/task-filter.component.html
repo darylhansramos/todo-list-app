@@ -1,0 +1,10 @@
+<div class="col-sm-2">
+    <select class="form-select"
+    [(ngModel)]="filter"
+    (ngModelChange)="changeFilter()">
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="Due">Due</option>
+        <option value="Completed">Completed</option>
+    </select>
+</div>

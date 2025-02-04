@@ -1,0 +1,16 @@
+@if(tasks.length == 0){
+    <div>
+        There are no tasks to do.
+    </div>
+}
+@else {
+    <ng-container *ngTemplateOutlet="showTasks"></ng-container>
+}
+
+<ng-template #showTasks>
+    <ul>
+        @for(task of tasks | filter: filter; track task){
+        <app-task-list-item [task]="task"/>
+        }
+    </ul>
+</ng-template>
